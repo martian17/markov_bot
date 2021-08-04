@@ -95,6 +95,11 @@ client.on("message", msg => {
         let result = [];
         for(let i = 0; i < length; i++){
             let options = table[prevWord];
+            if(!options){//no options, defaulting to 
+                result.push(".");
+                prevWord = ".";
+                continue;
+            }
             let rand = Math.random();
             for(let j = 0; j < options.length; j++){
                 if(rand < options[j][0]){
